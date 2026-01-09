@@ -10,5 +10,5 @@ Feature: User Registration
 
     Examples:
       | username | email            | password |
-      | eric18   | eric28@test.com  | 12345    |
-      | john18   | john18@test.com  | 12345    |
+      | eric19   | eric29@test.com  | 12345    |
+      | john19   | john19@test.com  | 12345    |
