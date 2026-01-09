@@ -6,8 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features/Login.feature",
-//        /Login_to_place_order.feature
+        features = "src/test/resources/features/LoginWithInvalid.feature",
         glue = {"stepdefinitions", "hooks"},
         plugin = {
                 "pretty",
@@ -18,4 +17,4 @@ import org.junit.runner.RunWith;
 public class TestRunner {
 }
 
-//plugin = {"pretty", "html:target/site/cucumber-pretty","json:target/cucumber.json"},
+
