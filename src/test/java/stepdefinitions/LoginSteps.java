@@ -43,8 +43,5 @@ public class LoginSteps {
             driver.quit();
         }
 
-        public void tearDown(){
-            driver.quit();
-        }
     }
 
