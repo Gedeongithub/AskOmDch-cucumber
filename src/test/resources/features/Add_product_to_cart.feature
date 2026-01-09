@@ -8,6 +8,5 @@ Feature: Add product to cart
     When I click the checkout button
     Then I should be taken to the accessory product page
 
-    When I select a product
-    And I add the product to the cart
+    When I select  products
     Then the product should be added to the shopping cart

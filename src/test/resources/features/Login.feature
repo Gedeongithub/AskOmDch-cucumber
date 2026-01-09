@@ -3,12 +3,11 @@ Feature: Login Functionality
   As a registered AskOmDch customer
   I want to log in successfully
 
-Scenario Outline: Login with multiple valid accounts
+Scenario: Login with multiple valid accounts
     Given I am on the AskOmDch account page
-    When I log in with valid <username> and <password> credentials
+    When I log in with valid credentials
+      | Isaro |
+      | I$ar0_2026!Rocks# |
     Then I should be logged into my account
 
-    Examples:
-      | username| password|
-      | tester  | tester  |
-      | tester1 | tester1 |
+

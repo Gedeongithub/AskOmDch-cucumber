@@ -1,30 +1,42 @@
 package stepdefinitions;
 
+import hooks.Hooks;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.List;
 
 public class Login_steps {
+    private final WebDriver driver=Hooks.driver;
     @Given("I am on the AskOmDch account page")
     public void i_am_on_the_ask_om_dch_account_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        driver.get("https://askomdch.com/account/");
     }
 
-    @When("I log in with valid tester and tester credentials")
-    public void i_log_in_with_valid_tester_and_tester_credentials() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @When("I log in with valid credentials")
+    public void i_log_in_with_valid_credentials(DataTable table) {
+        List<String> listTable = table.asList();
+        Actions action = new Actions(driver);
+        action.moveToElement(driver.findElement(By.xpath("//h2[normalize-space(text())='For Him']"))).perform();
+        driver.findElement(By.id("username")).sendKeys(listTable.get(0));
+        driver.findElement(By.id("password")).sendKeys(listTable.get(1));
+        driver.findElement(By.cssSelector(".woocommerce-button.button.woocommerce-form-login__submit")).click();
+
     }
 
     @Then("I should be logged into my account")
     public void i_should_be_logged_into_my_account() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(500));
+        wait.until(ExpectedConditions.elementToBeClickable(
+                driver.findElement(By.xpath("//a[normalize-space(text())='Dashboard']")))
+        );
 
-    @When("I log in with valid tester1 and tester1 credentials")
-    public void i_log_in_with_valid_tester1_and_tester1_credentials() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
     }
 
 }

@@ -10,5 +10,5 @@ Scenario Outline: Register a new account with valid details
 
   Examples:
       | username  |email   | password |
-      | tester  | tester@gmail.com | tester |
-      | tester1  | tester1@gmail.com | tester1|
+      | "testerA1" | "testerA1@gmail.com" | "testerA@gmail.com" |
+      | "testerB1"  | "testerB1@gmail.com" | "testerB@gmail.com"|
