@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import hooks.Hooks;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,14 +12,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-    public class LoginSteps {
+import java.time.Duration;
 
-        private WebDriver driver;
-        @Before
-        public void setUp(){
-            System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
-            driver = new ChromeDriver();
-        }
+public class LoginSteps {
+
+        private WebDriver driver = Hooks.driver;
 
         @Given("I am in the login page of the Askohmdch web app")
         public void i_am_in_the_login_page_of_the_askohmdch_web_app() {
