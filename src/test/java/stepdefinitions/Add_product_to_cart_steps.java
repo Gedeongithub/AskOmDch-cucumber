@@ -13,10 +13,11 @@ import java.time.Duration;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class Add_product_to_cart_steps {
     private final WebDriver driver =Hooks.driver;
+
+
     @Given("I am on the AskOmDch homepage")
     public void i_am_on_the_ask_om_dch_homepage() {
         driver.get("https://askomdch.com/");

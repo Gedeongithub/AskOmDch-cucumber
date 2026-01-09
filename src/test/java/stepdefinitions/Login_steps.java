@@ -14,13 +14,13 @@ import java.util.List;
 
 public class Login_steps {
     private final WebDriver driver=Hooks.driver;
-    @Given("I am on the AskOmDch account page")
+    @Given("the customer is on the AskOmDch account page")
     public void i_am_on_the_ask_om_dch_account_page() {
         driver.get("https://askomdch.com/account/");
     }
 
-    @When("I log in with valid credentials")
-    public void i_log_in_with_valid_credentials(DataTable table) {
+    @When("the customer logs in with valid credentials")
+    public void the_customer_logs_in_with_valid_credentials(DataTable table) {
         List<String> listTable = table.asList();
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(By.xpath("//h2[normalize-space(text())='For Him']"))).perform();
@@ -30,8 +30,8 @@ public class Login_steps {
 
     }
 
-    @Then("I should be logged into my account")
-    public void i_should_be_logged_into_my_account() {
+    @Then("the customer is logged to the account")
+    public void the_customer_is_logged_to_the_account() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(500));
         wait.until(ExpectedConditions.elementToBeClickable(
                 driver.findElement(By.xpath("//a[normalize-space(text())='Dashboard']")))
