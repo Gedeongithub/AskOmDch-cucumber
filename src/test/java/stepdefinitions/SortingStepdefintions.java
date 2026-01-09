@@ -21,10 +21,13 @@ public class SortingStepdefintions {
         optionlocator.click();
         Select select= new Select(optionlocator);
         select.selectByVisibleText(option);
+        String currentUrl = driver.getCurrentUrl();
+        System.out.println(currentUrl);
     }
     @Then("only products from {string} sorting should be displayed")
     public void only_products_from_sorting_should_be_displayed(String option) {
         System.out.println("The products are displayed according to this "+ option.toUpperCase());
+        System.out.println(driver.getCurrentUrl());
 
     }
 }
