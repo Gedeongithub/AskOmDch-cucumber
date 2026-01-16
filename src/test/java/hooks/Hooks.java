@@ -22,6 +22,7 @@ public class Hooks {
 
     @After
     public void tearDown() {
+        System.out.println("Browser clased");
         try {
             Thread.sleep(2500);
         } catch (InterruptedException e) {

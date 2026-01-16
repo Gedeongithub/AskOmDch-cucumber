@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import hooks.Hooks;
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.CartPage;
+import pages.StorePage;
 
 import java.time.Duration;
 import java.util.List;
@@ -60,4 +63,31 @@ public class Add_product_to_cart_steps {
         String products_number = driver.findElement(By.cssSelector(".ast-cart-menu-wrap")).findElement(By.tagName("span")).getText();
         assertEquals("The added products are less or more","3",products_number);
     }
+
+
+    // add product to cart steps from store page
+
+    @Given("I am on the Store page")
+    public void iAmOnTheStorePage() {
+        new StorePage(driver).openStorePage();
+    }
+
+    @When("I add {string} to the cart")
+    public void iAddToTheCart(String productName) {
+        new StorePage(driver).addProductToCart(productName);
+    }
+
+    @And("open Cart page")
+    public void openCartPage() {
+        new CartPage(driver).openCartPage();
+    }
+    @Then("{string} should be added to the cart")
+    public void shouldBeAddedToTheCart(String productName) {
+
+        new StorePage(driver).isProductInCart(productName);
+        System.out.println("Yeah product is present: "+new StorePage(driver).isProductInCart(productName));
+    }
+
+
+
 }
